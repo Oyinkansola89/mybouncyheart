@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Heart</title>
+    <style>
+      .heart {
+        font-family: monospace;
+        position: relative;
+        overflow: hidden;
+        width: 1em;
+        line-height: 1;
+        color: #f00;
+      }
+
+      .heart span {
+        position: relative;
+        display: inline-block;
+        animation: anim-heart 1s infinite;
+        transform-origin: center;
+      }
+
+      @keyframes anim-heart {
+        0% {
+          transform: scale(1);
+        }
+        5% {
+          transform: scale(1.1);
+        }
+        25% {
+          transform: translateY(-20px);
+        }
+        50% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heart">
+      <span>♥</span>
+    </div>
+  </body>
+  <script>
+    const heartElement = document.querySelector(".heart");
+
+    heartElement.addEventListener("click", function () {
+      heartElement.style.color = getRandomColor();
+    });
+    function getRandomColor() {
+      const randomColor = "#" + Math.random().toString(16).substr(-6);
+      return randomColor;
+    }
+  </script>
+</html>
